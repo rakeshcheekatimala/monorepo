@@ -262,3 +262,5 @@ yarn lerna run build
 ```
 yarn lerna publish
 ```
+
+Thanks to Robert Donnelly from his short course learnt a lot.

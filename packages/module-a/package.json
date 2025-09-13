@@ -16,5 +16,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "2f3e615d7832f1958bb22219cff1635b7f57dc25"
 }
