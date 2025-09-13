@@ -32,3 +32,51 @@ In your main project or another module, run npm link module-a to use the local v
 ![Symlink Example](symlink.png)
 
 Takeaway: Symlink is system shortcut to file or directory (Symbolic link)
+
+# Workspaces in Monorepos
+
+Workspaces are a way to set up multiple packages within a single repository, allowing them to interact and share dependencies efficiently. This approach streamlines development, testing, and collaboration by managing related packages together. In a Node.js monorepo, workspaces enable:
+
+- **Centralized Dependency Management:** Install dependencies for all packages from the root, reducing duplication. Automatic symbolic linking for your project.
+- **Inter-Package Collaboration:** Easily reference and use code from other packages in the same repo.
+- **Simplified Versioning:** Coordinate releases and updates across packages.
+
+Popular tools for managing workspaces include npm, Yarn, and pnpm. To configure workspaces, define them in your root `package.json`:
+
+```json
+{
+  "workspaces": {
+    "packages": [
+      "packages/module-a",
+      "packages/module-b"
+    ],
+  }
+}
+```
+
+This setup helps you develop, test, and maintain multiple packages efficiently within a single codebase.
+
+## Simplied version of above
+
+```json
+{
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+  }
+}
+```
+
+## Hoisting 
+
+I have installed the lodash package in module-a however yarn workspaces allows hoisting this installed
+package is at the root level & shared by both applications. 
+
+If you want to omit this you can make use of nohoist
+
+```json
+ "nohoist": [
+      "**/lodash"
+ ]
+```

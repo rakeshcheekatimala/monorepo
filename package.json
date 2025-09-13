@@ -12,6 +12,8 @@
   "type": "commonjs",
   "private": true,
   "workspaces": {
-    "packages": []
+    "packages": [
+      "packages/*"
+    ]
   }
 }
