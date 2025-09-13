@@ -12,5 +12,8 @@
   "type": "commonjs",
   "bin": {
     "logger":"./index.js"
+  },
+   "publishConfig": {
+    "access": "public"
   }
 }

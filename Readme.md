@@ -164,3 +164,95 @@ Original Source: [Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
 ```
   yarn workspaces run build 
 ```
+
+# Why pnpm?
+
+- pnpm manages node_modules using hard links and symlinks to a global, content-addressable store on disk.
+- This approach greatly reduces disk space usage compared to traditional package managers.
+- Your node_modules directory remains clean and organized.
+- Packages are not duplicated for each project; instead, they reference a single global store.
+
+# What is pnpm
+
+[PNPM](https://pnpm.io/pnpm-vs-npm)
+
+
+# How to install pnpm we have 2 choices
+
+```
+npm i -g pnpm
+```
+
+```
+corepack enable pnpm
+```
+
+# How to verify version of pnpm 
+
+```
+  pnpm --version
+```
+
+# Create pnpm-workspace.yaml 
+
+```yaml
+   packages:
+    - 'packages/*'
+```
+
+# How to install using pnpm
+
+```
+pnpm install
+```
+
+# How to build using pnpm 
+
+```
+pnpm -F "@monorepo/*" run build 
+```
+
+# How to add react using pnpm 
+
+```
+pnpm -F "@monorepo/module-a" add react -D 
+```
+
+Summary: If you are looking for more depth analyis to pick up which tool you need
+
+[MonoRepo](https://monorepo.tools/#tools-review)
+
+
+# Lerna 
+
+Lerna is a fast, modern build system for managing and publishing multiple JavaScript/TypeScript packages from the same repository.
+
+Prerequiste of Lerna Installation at root level project
+
+```
+yarn add lerna -DW 
+```
+
+Add this below content to your package.json in each module
+
+```json
+    {
+      "publishConfig": {
+      "access": "public"
+      }
+    }
+```
+
+```
+npx lerna init
+```
+
+Lerna.json
+
+- "version": "0.0.0": The initial version for your monorepo managed by Lerna. Lerna will use this as the starting point for versioning packages.
+- "npmClient": "yarn": Lerna will use Yarn as the package manager for installing dependencies and running scripts.
+
+```
+yarn lerna run build
+```
+![Build]('./lerna-build.png)
