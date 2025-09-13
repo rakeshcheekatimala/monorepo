@@ -1,3 +1,3 @@
 console.log('This is module A');
 
-require('module-b')
+require('@monorepo/module-b')

@@ -2,7 +2,21 @@
 # yarn lockfile v1
 
 
+"@monorepo/module-a@file:/Users/rakeshcheekatimala/Desktop/Learnings/monorepo/packages/module-a":
+  version "1.0.0"
+  resolved "file:packages/module-a"
+  dependencies:
+    lodash "^4.17.21"
+
+"@monorepo/module-b@file:/Users/rakeshcheekatimala/Desktop/Learnings/monorepo/packages/module-b":
+  version "1.0.0"
+  resolved "file:packages/module-b"
+
 lodash@^4.17.21:
   version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+"module-a@file:../../../.nvm/versions/node/v20.18.1/lib/node_modules/module-a":
+  version "2.0.0"
+  resolved "file:../../../.nvm/versions/node/v20.18.1/lib/node_modules/module-a"

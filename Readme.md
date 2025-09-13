@@ -106,7 +106,7 @@ In summary, bin scripts are for exposing executable commands to users of your pa
 
 # How to add bin scripts 
 
-Example in module-b , i would like to make index.js exposed as logger in package.json
+Example in @monorepo/module-b , i would like to make index.js exposed as logger in package.json
 
 
 ```json
@@ -138,7 +138,7 @@ rakeshcheekatimala@RAKESHs-MacBook-Pro monorepo % npm run logger
 rakeshcheekatimala@RAKESHs-MacBook-Pro monorepo % 
 ```
 
-Fix for the above problem add this to index.js in module-b
+Fix for the above problem add this to index.js in @monorepo/module-b
 
 ```
 #!/usr/bin/env node
@@ -148,13 +148,19 @@ console.log('This is module B');
 # How to run build or test commands without changing directory when using workspaces
 
 ```
-  yarn workspace module-b build
+  yarn workspace @monorepo/module-b build
 ```
 
-# How to add a library to module-a using yarn workspace
+# How to add a library to module-b using yarn workspace
 
 ```
-  yarn workspace module-b react
+  yarn workspace @monorepo/module-b react
 ```
 
 Original Source: [Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
+
+# How to run build of all projects 
+
+```
+  yarn workspaces run build 
+```
