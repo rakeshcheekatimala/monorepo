@@ -73,7 +73,16 @@ This setup helps you develop, test, and maintain multiple packages efficiently w
 I have installed the lodash package in module-a however yarn workspaces allows hoisting this installed
 package is at the root level & shared by both applications. 
 
-If you want to omit this you can make use of nohoist
+# How Yarn deals if two packages in your monorepo require different versions of the same library.
+
+Yarn will try to deduplicate dependencies as much as possible. However, if the version requirements are incompatible, Yarn will:
+
+- Install one version of the library in the root node_modules (if it satisfies the majority or the top-level requirement).
+
+- Install the other version inside the node_modules of the package that specifically needs the incompatible version.
+
+
+## How to want to omit any libary that you want to hoist
 
 ```json
  "nohoist": [
