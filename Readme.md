@@ -256,3 +256,9 @@ Lerna.json
 yarn lerna run build
 ```
 ![Build]('./lerna-build.png)
+
+# How to publish
+
+```
+yarn lerna publish
+```
