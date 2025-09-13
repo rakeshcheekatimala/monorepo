@@ -89,3 +89,72 @@ Yarn will try to deduplicate dependencies as much as possible. However, if the v
       "**/lodash"
  ]
 ```
+
+# Bin Scripts 
+
+Bin scripts are executable files defined in a package (usually in Node.js projects) that can be run directly from the command line. They are specified in the bin field of a package.json file, mapping command names to script files.
+
+You use bin scripts when you want to provide command-line tools or utilities as part of your package. For example, if your package offers a CLI (Command Line Interface), you would define a bin script so users can run your tool with a simple command after installing your package globally or as a dependency.
+
+Typical use cases:
+
+- Creating CLI tools (e.g., linters, build tools, generators)
+- Automating tasks (e.g., scripts for deployment, testing)
+- Providing developer utilities
+
+In summary, bin scripts are for exposing executable commands to users of your package.
+
+# How to add bin scripts 
+
+Example in module-b , i would like to make index.js exposed as logger in package.json
+
+
+```json
+    "bin": {
+    "logger":"./index.js"
+  }
+```
+
+
+# To reflect the bin scripts run this at root level 
+
+```
+yarn install --force
+
+```
+
+![Refer image](./binscripts.png)
+
+# How to fix this error syntax error when bin scripts is used & ran
+
+```
+rakeshcheekatimala@RAKESHs-MacBook-Pro monorepo % npm run logger 
+
+> packages@1.0.0 logger
+> logger
+
+/Users/rakeshcheekatimala/Desktop/Learnings/monorepo/node_modules/.bin/logger: line 1: syntax error near unexpected token `'This is module B''
+/Users/rakeshcheekatimala/Desktop/Learnings/monorepo/node_modules/.bin/logger: line 1: `console.log('This is module B');'
+rakeshcheekatimala@RAKESHs-MacBook-Pro monorepo % 
+```
+
+Fix for the above problem add this to index.js in module-b
+
+```
+#!/usr/bin/env node
+console.log('This is module B');
+```
+
+# How to run build or test commands without changing directory when using workspaces
+
+```
+  yarn workspace module-b build
+```
+
+# How to add a library to module-a using yarn workspace
+
+```
+  yarn workspace module-b react
+```
+
+Original Source: [Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
