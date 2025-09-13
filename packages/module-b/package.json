@@ -11,9 +11,9 @@
   "license": "ISC",
   "type": "commonjs",
   "bin": {
-    "logger":"./index.js"
+    "logger": "./index.js"
   },
-   "publishConfig": {
+  "publishConfig": {
     "access": "public"
   }
 }
